@@ -45,13 +45,13 @@ double calc(char* str, double x) {
                 continue;
             }
             if (str[i] == '~') {
-                double last = (head->next != NULL) ? pop_d(&head) : 0.0;
+                double last = (head->next != NULL) ? (double)pop_d(&head) : 0.0;
                 push_d(operations('-', 0.0, last), &head);
                 continue;
             }
-            double second = (head->next != NULL) ? pop_d(&head) : 0.0;
-            double firstd = (head->next != NULL) ? pop_d(&head) : 0.0;
-            push_d(operations(str[i], firstd, second), &head);
+            double second = (head->next != NULL) ? (double)pop_d(&head) : 0.0;
+            double firstd = (head->next != NULL) ? (double)pop_d(&head) : 0.0;
+            push_d(operations(str[i], (double)firstd, (double)second), &head);
         }
     }
     double res = head->data_d;
