@@ -27,7 +27,6 @@ double calc(char* str, double x) {
     element first = {'\0', 0, NULL};
     element* head = init(first);
     char symbols[] = "(+-*/%^~ABCDEFGHI";
-    int counter = 0;
 
     for (int i = 0; i < (int)strlen(str); i++) {
         if (str[i] == 'x') {
@@ -41,18 +40,17 @@ double calc(char* str, double x) {
             }
             push_d(atof(buf), &head);
         } else if (strchr(symbols, str[i])) {
-            counter++;
             if (strchr("ABCDEFGHI", str[i])) {
                 push_d(operations(str[i], (double)pop_d(&head), 0.0), &head);
                 continue;
             }
             if (str[i] == '~') {
-                double last = (head->next != NULL) ? pop_d(&head) : 0;
-                push_d(operations('-', 0, last), &head);
+                double last = (head->next != NULL) ? pop_d(&head) : 0.0;
+                push_d(operations('-', 0.0, last), &head);
                 continue;
             }
-            double second = (head->next != NULL) ? pop_d(&head) : 0;
-            double firstd = (head->next != NULL) ? pop_d(&head) : 0;
+            double second = (head->next != NULL) ? pop_d(&head) : 0.0;
+            double firstd = (head->next != NULL) ? pop_d(&head) : 0.0;
             push_d(operations(str[i], firstd, second), &head);
         }
     }
