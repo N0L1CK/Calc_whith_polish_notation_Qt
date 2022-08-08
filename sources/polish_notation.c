@@ -54,7 +54,7 @@ double calc(char* str, double x) {
             push_d(operations(str[i], (double)firstd, (double)second), &head);
         }
     }
-    double res = head->data_d;
+    double res = (double)head->data_d;
     destroy(&head);
     return res;
 }
