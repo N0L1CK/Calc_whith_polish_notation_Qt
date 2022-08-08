@@ -51,7 +51,7 @@ double calc(char* str, double x) {
             }
             double second = (head->next != NULL) ? (double)pop_d(&head) : 0.0;
             double firstd = (head->next != NULL) ? (double)pop_d(&head) : 0.0;
-            push_d(operations(str[i], (double)firstd, (double)second), &head);
+            push_d(operations(str[i], firstd, second), &head);
         }
     }
     double res = (double)head->data_d;
