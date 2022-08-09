@@ -3,6 +3,7 @@
 
 Calc::Calc(QWidget *parent) : QWidget(parent),
                               ui(new Ui::Calc) {
+    setlocale(LC_ALL,"en_US");
     ui->setupUi(this);
     SetSignals();
     g_m = new graphic_modeling();
