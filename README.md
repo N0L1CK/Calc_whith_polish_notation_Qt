@@ -1,1 +1,1 @@
-# Calc_whith_polish_notation_Qt
+# Calc_with_polish_notation_Qt
